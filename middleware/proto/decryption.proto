@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "go-grpc/middleware/proto";
+
+package middleware;
+
+message DecryptionRequest{
+  string payload = 1;
+}
+
+message DecryptionResponse{
+  string result = 1;
+}
+
+service DecryptionService{
+  rpc Decryption(DecryptionRequest) returns (DecryptionResponse);
+}

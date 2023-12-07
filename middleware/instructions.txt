@@ -1,0 +1,13 @@
+1. handshake
+    (a) generate public key and private key pair
+    (b) save private key if not already exists
+
+2. User generates encrypted secret key by using public key and RSA-256 algo and sends as request header
+
+3. Encryption
+    (a) get encrypted secret key from header and using same private key decrypt encrypted secret key to get secret key
+    (b) using same secret key encrypt the request using aes 256gcm
+    (c) join using nonce, auth tag and encrypted payload
+
+4. Decryption
+    (a)

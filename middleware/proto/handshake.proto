@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package middleware;
+
+option go_package = "go-grpc/middleware/proto";
+
+service HandshakeService {
+  rpc Handshake (HandshakeRequest) returns (HandshakeResponse);
+}
+
+message HandshakeRequest {
+  string client_id = 1;
+}
+
+message Data{
+  string publicKey = 1;
+}
+
+message HandshakeResponse {
+  Data data = 3;
+  string status = 2;
+  uint32 statusCode = 1;
+}
